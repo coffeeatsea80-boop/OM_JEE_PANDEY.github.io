@@ -529,17 +529,18 @@ function initContactForm() {
 
     if (GOOGLE_SHEET_WEB_APP_URL) {
       try {
-        const payload = new URLSearchParams();
-        payload.append('name', name);
-        payload.append('email', email);
-        payload.append('message', message);
-        payload.append('timestamp', new Date().toLocaleString());
+        const queryParams = new URLSearchParams({
+          name: name,
+          email: email,
+          message: message,
+          timestamp: new Date().toLocaleString()
+        });
 
-        await fetch(GOOGLE_SHEET_WEB_APP_URL, {
+        await fetch(`${GOOGLE_SHEET_WEB_APP_URL}?${queryParams.toString()}`, {
           method: 'POST',
           mode: 'no-cors',
           headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-          body: payload.toString()
+          body: queryParams.toString()
         });
         showToast(`Thank you, ${name}! Your message has been sent directly to Google Sheets.`, 'success');
         form.reset();
