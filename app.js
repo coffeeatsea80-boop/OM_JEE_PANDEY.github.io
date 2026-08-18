@@ -543,7 +543,7 @@ function initContactForm() {
           headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
           body: queryParams.toString()
         });
-        showToast(`Thank you, ${name}! Your message has been sent directly to Google Sheets.`, 'success');
+        showToast(`Thank you, ${name}! I have personally received your message and will review it right away. Looking forward to connecting!`, 'success');
         form.reset();
       } catch (err) {
         showToast('Error sending message. Please try again.', 'error');
@@ -556,7 +556,7 @@ function initContactForm() {
         submitBtn.disabled = false;
         submitBtn.innerHTML = originalText;
         form.reset();
-        showToast(`Thank you, ${name}! Your message has been submitted.`, 'success');
+        showToast(`Thank you, ${name}! I have personally received your message and will review it right away. Looking forward to connecting!`, 'success');
       }, 1000);
     }
   });
