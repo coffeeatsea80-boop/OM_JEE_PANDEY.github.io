@@ -501,7 +501,7 @@ function initSkillProgressBars() {
 /* Google Sheets Form Integration URL                                        */
 /* Set your Google Apps Script Web App URL below to send submissions to Sheets*/
 /* -------------------------------------------------------------------------- */
-const GOOGLE_SHEET_WEB_APP_URL = 'https://script.google.com/macros/s/AKfycbx6pl0l9xYUQ3fhcDUYe_c3Y4SIWYhsWbF1e3VHdXVs3rfeGrjd5x7oMmC9Gvni0q7DkA/exec';
+const GOOGLE_SHEET_WEB_APP_URL = 'https://script.google.com/macros/s/AKfycbzx4uzuZAR0BsDHcvc8J--AW1BR5AMGatuGzOUY0MWeRJZzGwhUwbEM4U3WSQnzrhtaxw/exec';
 
 /* -------------------------------------------------------------------------- */
 /* 9. Contact Form Handling & Toast                                          */
