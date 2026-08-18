@@ -16,6 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initBackToTop();
   initExecutiveSummaryModal();
   initTiltEffect();
+  initSecurityLayer();
 });
 
 /* -------------------------------------------------------------------------- */
@@ -684,6 +685,44 @@ function initTiltEffect() {
 
     card.addEventListener('touchend', resetTilt, { passive: true });
     card.addEventListener('touchcancel', resetTilt, { passive: true });
+  });
+}
+
+/* -------------------------------------------------------------------------- */
+/* 13. Content Security & Protection Layer                                   */
+/* -------------------------------------------------------------------------- */
+function initSecurityLayer() {
+  // Disable Right-Click Context Menu (Protects text & images)
+  document.addEventListener('contextmenu', (e) => {
+    const activeEl = document.activeElement;
+    const isInput = activeEl && (activeEl.tagName === 'INPUT' || activeEl.tagName === 'TEXTAREA');
+    if (!isInput) {
+      e.preventDefault();
+      showToast('Content protection enabled. Copying is restricted.', 'error');
+    }
+  });
+
+  // Prevent Image Dragging & Saving
+  document.addEventListener('dragstart', (e) => {
+    if (e.target.tagName === 'IMG') {
+      e.preventDefault();
+    }
+  });
+
+  // Block Copy & Inspect Keyboard Shortcuts (Ctrl+C, Ctrl+U, Ctrl+S, F12)
+  document.addEventListener('keydown', (e) => {
+    const activeEl = document.activeElement;
+    const isInput = activeEl && (activeEl.tagName === 'INPUT' || activeEl.tagName === 'TEXTAREA');
+
+    if (isInput) return; // Allow normal typing inside contact form
+
+    const isCopy = (e.ctrlKey || e.metaKey) && (e.key === 'c' || e.key === 'C' || e.key === 'u' || e.key === 'U' || e.key === 's' || e.key === 'S');
+    const isInspect = e.key === 'F12' || ((e.ctrlKey || e.metaKey) && e.shiftKey && (e.key === 'I' || e.key === 'i' || e.key === 'J' || e.key === 'j' || e.key === 'C' || e.key === 'c'));
+
+    if (isCopy || isInspect) {
+      e.preventDefault();
+      showToast('Content protection enabled. Copying is restricted.', 'error');
+    }
   });
 }
 
