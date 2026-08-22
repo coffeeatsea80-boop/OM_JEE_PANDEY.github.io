@@ -9,7 +9,25 @@ Thumbs.db
 .windsurf/
 .warp/
 .agents/
+.agent/
+.gsd/
+.claude/
+.cursor/
+.trae/
+.roo/
+.qoder/
+.kilocode/
+.kiro/
+.codex/
+.continue/
+.factory/
+.augment/
+.opencode/
+.codebuddy/
+.codewhale/
 .github/
+PROJECT_RULES.md
+GSD-STYLE.md
 *.log
 
 # Node & Temp
