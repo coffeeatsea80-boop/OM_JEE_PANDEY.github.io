@@ -28,6 +28,8 @@ Thumbs.db
 .github/
 PROJECT_RULES.md
 GSD-STYLE.md
+PRD.md
+progress.txt
 *.log
 
 # Node & Temp
