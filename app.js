@@ -458,10 +458,17 @@ function openModal(data, certKey = '') {
     </div>
 
     <div style="text-align: center; border-top: 1px solid var(--glass-border); padding-top: 1.25rem;">
-      <a href="${docUrl}" target="_blank" rel="noopener" class="btn btn-gold" style="width: 100%; text-decoration: none;">
-        <i class="fas fa-file-image"></i> View Original Certificate Image
-      </a>
-      <p style="font-size: 0.75rem; color: var(--text-subtle); margin-top: 0.5rem;">Opens your official original certificate image file in a new tab.</p>
+      ${certKey === 'executive_profile' ? `
+        <a href="#contact" onclick="closeModal()" class="btn btn-primary" style="width: 100%; text-decoration: none;">
+          <i class="fas fa-paper-plane"></i> Get in Touch with Om Jee
+        </a>
+        <p style="font-size: 0.75rem; color: var(--text-subtle); margin-top: 0.5rem;">Reach out directly for talent acquisition and HR opportunities.</p>
+      ` : `
+        <a href="${docUrl}" target="_blank" rel="noopener" class="btn btn-gold" style="width: 100%; text-decoration: none;">
+          <i class="fas fa-file-image"></i> View Original Certificate Image
+        </a>
+        <p style="font-size: 0.75rem; color: var(--text-subtle); margin-top: 0.5rem;">Opens your official original certificate image file in a new tab.</p>
+      `}
     </div>
   `;
 
